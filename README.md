@@ -1,8 +1,8 @@
 # Bondmachine_zedboard_buildroot
 
-## How to make a bondmachine accelerator on Zynq EBAZ4205.
+## How to make a bondmachine accelerator on Zynq ZedBoard.
 
-The following guide is a step by step tutorial on how to create a bondmachine accelerator using the Zynq EBAZ4205 board.</br>
+The following guide is a step by step tutorial on how to create a bondmachine accelerator using the Zynq ZedBoard.</br>
 This tutorial can be broken down into three blocks:
 in the first one is shown how to create the block design using Vivado and how to export the bitstream and the programmable logic; the second block will focus on Linux-based image creation using buildroot; finally in the last block is shown how to test the accelerator directly from the OS.
 Requirements:
