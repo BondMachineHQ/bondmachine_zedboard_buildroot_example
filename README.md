@@ -53,14 +53,20 @@ Create the vhdl code by selecting the block design, right-click and *create HDL 
 
 Now you are ready to generate the bitstream! Before do that, go to *tools* -> *settings* -> *bitstream* and check the box *bin_file* in order to generate also the *.bin* file.</br>
 Click on *run synthesis* and wait until the entire process ends. 
-
-<br>
-TODO from here 
-<br>
-
 After that, click on *run implementation* and at the click on *generate bitstream*. The bistream file will be generate after this last process and you will find it inside your project directory (<project_name>.runs/impl_1/<bitstreamfile.bin>).
 
+<br>
+<img src="media/images/las-bistream.png" alt="drawing" width="600"/>
+<br>
+
 Before closing vivado there is one last thing left, export the hardware! Go to *File* -> *Export* -> *Export hardware* and select *Include bitstream*. The generated file has an .xsa extension and will be located in the root directory of your project.
+
+<br>
+<br>
+TODO FROM here
+<br>
+<br>
+
 In the root directory of your project, create a folder and call it *DTS*: it will be useful to you when exporting dts files.
 Now you can close Vivado and free up a lot of RAM!
 It's time to generate all the DTS's file necessary to generate the device tree blob file. This file is "compiled" by a special compiler which produces the correctly binary that can be interpreted by U-boot and Linux. </br>
