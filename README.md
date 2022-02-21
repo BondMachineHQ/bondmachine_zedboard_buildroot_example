@@ -46,16 +46,19 @@ Finally, select *run block automation*. The result should look like the the foll
 <img src="media/images/4-final-block-diagram.png" alt="drawing" width="600"/>
 <br>
 Now, validate the design by clicking the button *validate design* .
-
-<br>
-TODO from here connot find *create HDL Wrapper*
-<br>
-
 Create the vhdl code by selecting the block design, right-click and *create HDL Wrapper* .
+<br>
+<img src="media/images/hdl-wrapper.png" alt="drawing" width="600"/>
+<br>
 
-Probably after the generation of the hdl code two warnings will appear, skip them they are not relevant.</br>
 Now you are ready to generate the bitstream! Before do that, go to *tools* -> *settings* -> *bitstream* and check the box *bin_file* in order to generate also the *.bin* file.</br>
-Click on *run synthesis* and wait until the entire process ends. After that, click on *run implementation* and at the click on *generate bitstream*. The bistream file will be generate after this last process and you will find it inside your project directory (<project_name>.runs/impl_1/<bitstreamfile.bin>).
+Click on *run synthesis* and wait until the entire process ends. 
+
+<br>
+TODO from here 
+<br>
+
+After that, click on *run implementation* and at the click on *generate bitstream*. The bistream file will be generate after this last process and you will find it inside your project directory (<project_name>.runs/impl_1/<bitstreamfile.bin>).
 
 Before closing vivado there is one last thing left, export the hardware! Go to *File* -> *Export* -> *Export hardware* and select *Include bitstream*. The generated file has an .xsa extension and will be located in the root directory of your project.
 In the root directory of your project, create a folder and call it *DTS*: it will be useful to you when exporting dts files.
