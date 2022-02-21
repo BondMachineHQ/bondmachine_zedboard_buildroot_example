@@ -33,14 +33,18 @@ The ip package manager will open and here you have to remove the files generated
 </br>
 <img src="media/images/5-edit-bm-ip-1.png" alt="drawing" width="500"/>
 </br>
-
+Now you can importa using the Add Sources the three Bond machine files in bondmachine-src:
+<br>
 <img src="media/images/6-edit-ip-bm-2.png" alt="drawing" width="500"/>
-
+<br>
 Go to *Review and package* and click on *re-package IP*. Now come back to Vivado and add the new IP module just created.
+<br>
+<img src="media/images/6-edit-ip-bm-2.png" alt="drawing" width="500"/>
+<br>
 Finally, select *run block automation*. The result should look like the the following:
-
+<br>
 <img src="media/images/4-final-block-diagram.png" alt="drawing" width="600"/>
-
+<br>
 Now, validate the design by clicking the button *validate design* .
 Create the vhdl code by selecting the block design, right-click and *create HDL Wrapper* .
 
