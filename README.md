@@ -1,4 +1,4 @@
-# Bondmachine_ebaz4205_buildroot
+# Bondmachine_zedboard_buildroot
 
 ## How to make a bondmachine accelerator on Zynq EBAZ4205.
 
