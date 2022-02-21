@@ -38,9 +38,6 @@ Now you can importa using the Add Sources the three Bond machine files in bondma
 <img src="media/images/6-edit-ip-bm-2.png" alt="drawing" width="500"/>
 <br>
 Go to *Review and package* and click on *re-package IP*. Now come back to Vivado and add the new IP module just created.
-<br>
-<img src="media/images/6-edit-ip-bm-2.png" alt="drawing" width="500"/>
-<br>
 Finally, select *run block automation*. The result should look like the the following:
 <br>
 <img src="media/images/4-final-block-diagram.png" alt="drawing" width="600"/>
