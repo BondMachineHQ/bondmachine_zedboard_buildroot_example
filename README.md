@@ -82,9 +82,9 @@ Open the xsct console by typing *xsct* and then type the following commands:
 ````
 hsi open_hw_design design_name.xsa 
 hsi set_repo_path /path/to/device/tree_xlnx_repository 
-hsi create_sw_design device-tree -os device_tree -proc psv_cortexa72_0 
+hsi create_sw_design device-tree -os device_tree -proc ps7_cortexa9_0
 hsi generate_target -dir /path/to/dts/folder/prev/created 
-hsi close_hw_design [current_hw_design] 
+hsi close_hw_design design_name
 exit 
 ````
 <br>
