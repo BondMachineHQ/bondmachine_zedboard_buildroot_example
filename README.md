@@ -60,32 +60,45 @@ After that, click on *run implementation* and at the click on *generate bitstrea
 <br>
 
 Before closing vivado there is one last thing left, export the hardware! Go to *File* -> *Export* -> *Export hardware* and select *Include bitstream*. The generated file has an .xsa extension and will be located in the root directory of your project.
-
-<br>
-<br>
-TODO FROM here
-<br>
-<br>
-
 In the root directory of your project, create a folder and call it *DTS*: it will be useful to you when exporting dts files.
 Now you can close Vivado and free up a lot of RAM!
+<br>
+<br>
 It's time to generate all the DTS's file necessary to generate the device tree blob file. This file is "compiled" by a special compiler which produces the correctly binary that can be interpreted by U-boot and Linux. </br>
-Open a CLI and clone the xilinx device tree repository.
+Open a CLI and clone the xilinx device tree repository inside the DTS dir.
 ````
 git clone https://github.com/Xilinx/device-tree-xlnx
 cd device-tree-xlnx
-git checkout *xilinx-v201X.X*
+git checkout xilinx-v20XX.X
+````
+
+Note: *xilinx-v201X.X* need to specify the vivado version yoou are using, in our case should be:
+````
+git checkout xilinx-v2020.2
 ````
 and source Xilinx Tools (source /path/to/tools/Vivado/2020.2/settings64.sh).
+Now chagedir into the root of the Vivado project and
 Open the xsct console by typing *xsct* and then type the following commands:
 ````
 hsi open_hw_design design_name.xsa 
-hsi set_repo_path path to device-tree-xlnx repository 
+hsi set_repo_path /path/to/device/tree_xlnx_repository 
 hsi create_sw_design device-tree -os device_tree -proc psv_cortexa72_0 
 hsi generate_target -dir /path/to/dts/folder/prev/created 
 hsi close_hw_design [current_hw_design] 
 exit 
 ````
+<br>
+<br>
+TODO from here 
+
+xsct% hsi create_sw_design device-tree -os device_tree -proc psv_cortexa72_0
+ERROR: [Hsi 55-1547] Processor Instance psv_cortexa72_0 is not present in the Hardware Design
+ERROR: [Hsi 55-1447] Error: running create_sw_design.
+ERROR: [Common 17-39] 'hsi::create_sw_design' failed due to earlier errors.
+
+<br>
+<br>
+
 go to the root directory of the project and check inside the dts folder if all the newly generated files are present. There should be the following files:
 
 <ul>
