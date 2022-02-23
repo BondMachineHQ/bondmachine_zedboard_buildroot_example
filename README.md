@@ -72,7 +72,7 @@ cd device-tree-xlnx
 git checkout xilinx-v20XX.X
 ````
 
-Note: *xilinx-v201X.X* need to specify the vivado version yoou are using, in our case should be:
+Note: *xilinx-v20XX.X* need to specify the vivado version yoou are using, in our case should be:
 ````
 git checkout xilinx-v2020.2
 ````
