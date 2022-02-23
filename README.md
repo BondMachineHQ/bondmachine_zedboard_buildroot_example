@@ -87,19 +87,8 @@ hsi generate_target -dir /path/to/dts/folder/prev/created
 hsi close_hw_design design_name
 exit 
 ````
-<br>
-<br>
-TODO from here 
 
-xsct% hsi create_sw_design device-tree -os device_tree -proc psv_cortexa72_0
-ERROR: [Hsi 55-1547] Processor Instance psv_cortexa72_0 is not present in the Hardware Design
-ERROR: [Hsi 55-1447] Error: running create_sw_design.
-ERROR: [Common 17-39] 'hsi::create_sw_design' failed due to earlier errors.
-
-<br>
-<br>
-
-go to the root directory of the project and check inside the dts folder if all the newly generated files are present. There should be the following files:
+go to the DTS directory of the project and check inside the dts folder if all the newly generated files are present. There should be the following files:
 
 <ul>
 <li> device-tree.mss  </li>
@@ -114,11 +103,11 @@ go to the root directory of the project and check inside the dts folder if all t
 
 Generate a complete *.dts* file using the **gcc** compiler with the following command: </br>
 ````
-gcc -I dts -E -nostdinc -undef -DDTS -x assembler-with-cpp -o full-system.dts dts/system-top.dts
+gcc -I dts -E -nostdinc -undef -DDTS -x assembler-with-cpp -o full-system.dts system-top.dts
 ````
 And finally create the *.dtb* file using the **device tree compiler** tool:</br>
 ````
-dtc -O dtb -o ebaz4205-bm.dtb full-system.dts
+dtc -O dtb -o zedboard-bm.dtb full-system.dts
 ````
 Well done! Keep aside the two keys files produced by all these steps: the bitstream file and the device tree blob file because they will be useful and essential for the functioning of the system.
 
@@ -127,7 +116,7 @@ Well done! Keep aside the two keys files produced by all these steps: the bitstr
 Get the *2020.11.4* version of buildroot and navigate inside the main folder. 
 For the creation of the image you will use the zynq configuration file inside the *configs* folder of this repository. In order to do that, type the following command:
 ````
-make BR2_EXTERNAL=/path_to_this_repository/bondmachine_ebaz4205_buildroot/ zynq_ebaz4205_defconfig
+make zynq_zed_defconfig
 ````
 and now type 
 ````
