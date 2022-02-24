@@ -122,8 +122,50 @@ and now type
 ````
 make 2>&1 | tee build.log
 ````
-to begin the process. This phase takes a few minutes, take a coffee, even two.</br>
-At the end of the process, all the necessary files will be located inside the *output/images* folder. If everything went well, you will have these files too:
+to perform a first build (this first build can avoided). This phase takes a few minutes, take a coffee, even two.</br>
+Now we can configure and prepare a proper SD images. In the buildroot dir:
+````
+make menuconfig
+````
+Now go to: "Kernel --> In-tree Device Tree Source file names" and change change the name to "zedboard-bm" (or in any case change the value to the filename of the  dtb file in the DTS dir). Now we want to enable OpenSSH server thus: "Target packages  --->  Networking applications  ---> enable OpenSSH". Once done save and exit from the menuconfig, and:
+````
+make linux-menuconfig
+````
+go to "CPU Power Management" and disable   "CPU Frequency scaling disable", again save and exit.
+<br>
+Now we are ready to build again the sdcard thus: 
+````
+make 
+````
+The make will stop with an error showing where you need to place the custom dtb file, in my case:
+````
+cp /home/redo/buildrootzedboard/DTS/zedboard-bm.dtb ./output/build/linux-4.16/arch/arm/boot/dts/zedboard-bm.dtb
+make 
+````
+
+At the end of the process, the images is ready but we need to copy there the bitsteam: 
+
+````
+cd output/images/
+sudo kpartx -a sdcard.img
+sudo mount /dev/mapper/loop27p1 /mnt/
+cd /mnt
+sudo cp /home/redo/buildrootzedboard/buildrootzedboard.runs/impl_1/design_1_wrapper.bin  ./
+cd /pub3/redo/buildroot/output/images/
+sudo umount /mnt 
+sudo kpartx -d ./sdcard.img
+````
+Note the name of the loop device could be different, and quite surely the name and 
+location of the bitstream file will be different. Now we can copy the images into the sdcard:
+````
+sudo dd if=./sdcard.img  of=/dev/sdb 
+````
+Clearly you nedd to select the proper device name sdb in my case. Insert the sdcard into the zedboard
+and power-on:
+
+<br>
+TODO test from here need to remove some ,,
+<br>
 
 <ul>
 <li> boot.bin  </li>
